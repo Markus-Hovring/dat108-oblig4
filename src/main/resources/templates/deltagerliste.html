@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/simple.css">
+	<title>Deltagerliste</title>
+</head>
+<body>
+
+<p>Innlogget som:
+	<span th:text="${innlogget.mobil}"></span> /
+	<span th:text="${innlogget.fulltNavn}"></span>
+</p>
+	<h2>Deltagerliste</h2>
+	<table>
+		<tr>
+			<th>Kjønn</th>
+			<th align="left">Navn</th>
+			<th align="left">Mobil</th>
+		</tr>
+
+		<tr th:each="d : ${deltagere}"
+		th:style="${d.mobil == innlogget.mobil} ? 'background-color:lightgreen' : null">
+			<td th:utext="${d.kjonnsymbol}"></td>
+			<td th:text="${d.fulltNavn}"></td>
+			<td th:text="${d.mobilFormatert}"></td>
+		</tr>
+
+	</table>
+	<br>
+
+    <form action="utlogging" method="post">
+		<button type="submit">Logg ut</button>
+	</form>
+
+
+</body>
+</html>

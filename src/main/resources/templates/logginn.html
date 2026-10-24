@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/simple.css">
+<title>Logg inn</title>
+</head>
+<body>
+	<h2>Logg inn</h2>
+
+	<p style="color:red" th:if="${feilmelding}" th:text="${feilmelding}"></p>
+
+	<form action="innlogging" method="post">
+		<input type="text" name="mobil">
+		<input type="password" name="passord">
+		<button type="submit">Logg inn</button>
+	</form>
+
+</body>
+</html>
